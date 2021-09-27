@@ -1,24 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GeekBrainsMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTe-FO-2HA" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgJ-5p-HzT">
+                                <rect key="frame" x="347" y="94" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="tap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jlb-mf-b09"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eTe-FO-2HA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7b7-dY-eZB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eTe-FO-2HA" secondAttribute="trailing" id="ArT-ox-uKS"/>
+                            <constraint firstItem="eTe-FO-2HA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="BAv-nY-SXe"/>
+                            <constraint firstItem="eTe-FO-2HA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HyY-GS-ZZa"/>
+                            <constraint firstItem="eTe-FO-2HA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UlX-97-9cX"/>
+                            <constraint firstItem="eTe-FO-2HA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="lWp-Z3-28B"/>
+                            <constraint firstItem="eTe-FO-2HA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qYA-py-5oK"/>
+                            <constraint firstItem="XgJ-5p-HzT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="qfy-Jy-wJG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eTe-FO-2HA" secondAttribute="bottom" id="qmy-W3-Yea"/>
+                            <constraint firstItem="eTe-FO-2HA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vad-Bm-Zi7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XgJ-5p-HzT" secondAttribute="trailing" id="vvO-dB-6Yi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="eTe-FO-2HA" id="qTg-hg-wJu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

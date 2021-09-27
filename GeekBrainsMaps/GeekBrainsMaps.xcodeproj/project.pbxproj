@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DAA3CA12701FF13007A9432 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA3CA02701FF13007A9432 /* style.json */; };
 		3DACE04A2701DACC00D87ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACE0492701DACC00D87ED7 /* AppDelegate.swift */; };
 		3DACE04C2701DACC00D87ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACE04B2701DACC00D87ED7 /* SceneDelegate.swift */; };
 		3DACE04E2701DACC00D87ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACE04D2701DACC00D87ED7 /* ViewController.swift */; };
 		3DACE0512701DACC00D87ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DACE04F2701DACC00D87ED7 /* Main.storyboard */; };
 		3DACE0532701DACE00D87ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DACE0522701DACE00D87ED7 /* Assets.xcassets */; };
 		3DACE0562701DACE00D87ED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DACE0542701DACE00D87ED7 /* LaunchScreen.storyboard */; };
+		3DACE0622701E2AA00D87ED7 /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 3DACE0612701E2AA00D87ED7 /* GoogleMaps */; };
+		3DACE0642701E2AA00D87ED7 /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 3DACE0632701E2AA00D87ED7 /* GooglePlaces */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3DAA3CA02701FF13007A9432 /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
 		3DACE0462701DACC00D87ED7 /* GeekBrainsMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeekBrainsMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DACE0492701DACC00D87ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DACE04B2701DACC00D87ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DACE0622701E2AA00D87ED7 /* GoogleMaps in Frameworks */,
+				3DACE0642701E2AA00D87ED7 /* GooglePlaces in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,7 @@
 				3DACE0492701DACC00D87ED7 /* AppDelegate.swift */,
 				3DACE04B2701DACC00D87ED7 /* SceneDelegate.swift */,
 				3DACE04D2701DACC00D87ED7 /* ViewController.swift */,
+				3DAA3CA02701FF13007A9432 /* style.json */,
 				3DACE04F2701DACC00D87ED7 /* Main.storyboard */,
 				3DACE0522701DACE00D87ED7 /* Assets.xcassets */,
 				3DACE0542701DACE00D87ED7 /* LaunchScreen.storyboard */,
@@ -83,6 +90,10 @@
 			dependencies = (
 			);
 			name = GeekBrainsMaps;
+			packageProductDependencies = (
+				3DACE0612701E2AA00D87ED7 /* GoogleMaps */,
+				3DACE0632701E2AA00D87ED7 /* GooglePlaces */,
+			);
 			productName = GeekBrainsMaps;
 			productReference = 3DACE0462701DACC00D87ED7 /* GeekBrainsMaps.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,9 @@
 				Base,
 			);
 			mainGroup = 3DACE03D2701DACB00D87ED7;
+			packageReferences = (
+				3DACE0602701E2AA00D87ED7 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
+			);
 			productRefGroup = 3DACE0472701DACC00D87ED7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,6 +142,7 @@
 				3DACE0562701DACE00D87ED7 /* LaunchScreen.storyboard in Resources */,
 				3DACE0532701DACE00D87ED7 /* Assets.xcassets in Resources */,
 				3DACE0512701DACC00D87ED7 /* Main.storyboard in Resources */,
+				3DAA3CA12701FF13007A9432 /* style.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +375,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3DACE0602701E2AA00D87ED7 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/YAtechnologies/GoogleMaps-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3DACE0612701E2AA00D87ED7 /* GoogleMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DACE0602701E2AA00D87ED7 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GoogleMaps;
+		};
+		3DACE0632701E2AA00D87ED7 /* GooglePlaces */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DACE0602701E2AA00D87ED7 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */;
+			productName = GooglePlaces;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DACE03E2701DACB00D87ED7 /* Project object */;
 }
