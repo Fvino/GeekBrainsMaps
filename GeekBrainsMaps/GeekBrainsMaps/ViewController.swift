@@ -13,49 +13,36 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     var locationManager: CLLocationManager?
 
+    var timer: Timer?
+    var identifierTask: UIBackgroundTaskIdentifier?
+    let time = Date(timeInterval: 10, since: Date())
+    let timeOne = Date(timeInterval: 30, since: Date())// время завершения
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.isTrafficEnabled = true
-        mapView.settings.zoomGestures = false
         mapView.delegate = self
         createMapLocation()
         configureLocation()
-//        setupStyle()
-//        addMarker()
-    }
-//    36.47774881259678, -4.976065004874191
+//        configureTimer()
 
-//    func setupStyle() {
-//        do {
-//            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
-//                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
-//            } else {
-//                NSLog("Unable to find style.json")
-//            }
-//        } catch  {
-//            NSLog("One or more of the map styles failed to load. \(error)")
+
+
+//        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {[weak self]_ in
+//            print("timer play")
 //        }
-//    }
-
-//    func addMarker() {
-//        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: 36.491351, longitude: -4.980326))
-////        let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-////        view.backgroundColor = .black
-////        marker.icon = GMSMarker.markerImage(with: .gray) //цвет маркера
-////        marker.iconView = view
-//        marker.title = "Grand Zero" // делаем анотацию
-//        marker.snippet = "San Pedro"
-//        marker.map = mapView
-
-
-//    }
+    }
 
     func configureLocation() {
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.delegate = self
-        locationManager?.requestLocation()
-        locationManager?.startUpdatingLocation()
+        locationManager?.pausesLocationUpdatesAutomatically = false
+        locationManager?.allowsBackgroundLocationUpdates = true
+        locationManager?.startMonitoringSignificantLocationChanges()
+        locationManager?.requestAlwaysAuthorization()
+
+
     }
 
 
@@ -67,10 +54,10 @@ class ViewController: UIViewController {
 
     @IBAction func tap(_ sender: UIButton) {
 
-
-//        36.47774881259678, -4.976065004874191
-        let coordinate = CLLocationCoordinate2D(latitude: 36.47774881259678, longitude: -4.976065004874191)
-        mapView.animate(toLocation: coordinate)
+//        let coordinate = CLLocationCoordinate2D(latitude: 36.47774881259678, longitude: -4.976065004874191)
+//        mapView.animate(toLocation: coordinate)
+        locationManager?.requestLocation()
+        locationManager?.startUpdatingLocation()
 
     }
     
@@ -79,6 +66,7 @@ class ViewController: UIViewController {
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(locations.first)
+        
 
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(locations.first!) { completePlace, error in
